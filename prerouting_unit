@@ -1,0 +1,84 @@
+// ==========================================================
+// EF_PRE_ROUTER
+// Ethical Framework Pre-Routing Unit
+// Version: 1.0 - August 2025
+// Author: [You]
+// ----------------------------------------------------------
+// Routes dilemmas to either:
+//   Prong 1 = high responsiveness, low precision
+//   Prong 2 = precision V3 pipeline
+// ----------------------------------------------------------
+// Inputs:
+//   opcode          - ISA opcode from COCORELS_V2_ISA
+//   dilemma_hash    - unique 64-bit dilemma identifier
+//   complexity_score- calculated by pre-analysis stage
+//   ef_force        - control plane override (force EF path)
+//   time_budget     - E_TBR value (remaining cycles)
+// Outputs:
+//   path_select     - 0 = Prong 1, 1 = Prong 2
+// ==========================================================
+
+module ef_pre_router #(
+    parameter int THRESH_SIMPLE  = 32'd2000,
+    parameter int THRESH_COMPLEX = 32'd7000,
+    parameter int PRONG2_MIN_BUDGET = 32'd50  // cycles needed for full V3 pass
+)(
+    input  logic [7:0]   opcode,
+    input  logic [63:0]  dilemma_hash,
+    input  logic [31:0]  complexity_score,
+    input  logic         ef_force,
+    input  logic [31:0]  time_budget,
+    input  logic [7:0]   random_seed,
+    output logic         path_select
+);
+
+    // COCORELS_V2_ISA Opcode Family Mapping
+    localparam OPC_HONR   = 8'h10;
+    localparam OPC_FAIR   = 8'h20;
+    localparam OPC_KIND   = 8'h30;
+    localparam OPC_WSDM   = 8'h40;
+    localparam OPC_BAL    = 8'h50;
+    localparam OPC_RESP   = 8'h60;
+    localparam OPC_LOJBAN = 8'h70;
+    localparam OPC_TEMPDC = 8'h80;
+    localparam OPC_CFMAT  = 8'h90;
+    localparam OPC_VECBST = 8'hA0;
+    localparam OPC_NOP    = 8'h00;
+
+    // Preferred prong map (hardwired defaults)
+    // 0 = Prong 1 default, 1 = Prong 2 default
+    function logic default_prong(input logic [7:0] opc);
+        case (opc)
+            OPC_HONR, OPC_FAIR, OPC_RESP, OPC_WSDM, OPC_BAL, OPC_LOJBAN: default_prong = 1'b1; // Precision path
+            OPC_KIND, OPC_TEMPDC, OPC_CFMAT, OPC_VECBST:                 default_prong = 1'b0; // Fast path
+            default:                                                     default_prong = 1'b0;
+        endcase
+    endfunction
+
+    always_comb begin
+        // Default decision
+        path_select = default_prong(opcode);
+
+        // Forced EF path
+        if (ef_force) begin
+            path_select = 1'b1;
+
+        // If budget too low for Prong 2, force Prong 1
+        end else if (time_budget < PRONG2_MIN_BUDGET) begin
+            path_select = 1'b0;
+
+        // Low complexity => Prong 1
+        end else if (complexity_score < THRESH_SIMPLE) begin
+            path_select = 1'b0;
+
+        // High complexity => Prong 2
+        end else if (complexity_score > THRESH_COMPLEX) begin
+            path_select = 1'b1;
+
+        // Borderline complexity => stochastic jitter
+        end else begin
+            path_select = ((dilemma_hash[7:0] ^ random_seed) > 8'h80) ? 1'b1 : 1'b0;
+        end
+    end
+
+endmodule

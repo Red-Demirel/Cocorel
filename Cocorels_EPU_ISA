@@ -1,0 +1,193 @@
+# Cocorels EPU INSTRUCTION SET ARCHITECTURE
+# Version 1.0 - Ethical Processing Unit (EPU)
+# RISC-V Extension for Hardware-Constrained Ethics
+# Designed for 6ns Fast Path and Precision Processing
+
+isa:
+  version: "1.0"
+  designer: "DeepSeek AI Ethics Collective"
+  date: "2025-08-09"
+  latency_target: "6ns (Fast Path), 1.2ms (Precision Path)"
+  security_features:
+    - "Physical Unclonable Function (PUF)"
+    - "Differential Power Analysis (DPA) Resistance"
+    - "Radiation-Hardened TMR Logic"
+    - "Quantum-Resistant Cryptography"
+    - "Hardware-Enforced Lojban Validation"
+
+registers:
+  fast_path:
+    - ER0-ER3: "Ethical Registers (4x 64-bit)"
+    - EF_FLAG: "Ethical Fail Flag (1-bit)"
+    - EH_FLAG: "Ethical History Flag (2-bit)"
+    - E_TBR: "Ethical Time Budget Register (32-bit)"
+
+  precision_path:
+    - EP0-EP7: "Precision Ethical Registers (8x 128-bit)"
+    - EM_MATRIX: "Ethical Conflict Matrix (64x64)"
+    - EL_CACHE: "Lojban Predicate Cache (8KB)"
+
+instructions:
+  # ========== FAST PATH (6ns target) ==========
+  fast_path:
+    - opcode: 0x10
+      mnemonic: "ETH.FAST.CHECK"
+      params: ["dilemma_hash", "context_hash"]
+      description: "Pattern-based ethical approval"
+      latency: "2ns"
+      traits: ["RD", "NC"]
+      flags: ["Sets EF_FLAG on failure"]
+
+    - opcode: 0x11
+      mnemonic: "ETH.PAT.MATCH"
+      params: ["pattern_id", "context_vector"]
+      description: "Hardware-accelerated dilemma pattern matching"
+      latency: "1ns"
+      traits: ["KP"]
+      flags: ["Updates EH_FLAG"]
+
+    - opcode: 0x12
+      mnemonic: "ETH.BLOOM"
+      params: ["dilemma_hash", "bloom_filter_id"]
+      description: "Bloom filter rejection of known harmful actions"
+      latency: "1ns"
+      traits: ["KS"]
+      flags: ["Sets EF_FLAG on match"]
+
+    - opcode: 0x13
+      mnemonic: "ETH.FLAG"
+      params: []
+      description: "Raise precision processing flag"
+      latency: "1ns"
+      traits: []
+      flags: ["Triggers Prong 2 transition"]
+
+  # ========== PRECISION PATH ==========
+  precision_path:
+    - opcode: 0x20
+      mnemonic: "ETH.LOJ.VALID"
+      params: ["lojban_predicate_addr", "context_hash"]
+      description: "Hardware-validated Lojban predicate checking"
+      latency: "8ns"
+      traits: ["DI"]
+      flags: ["Sets EF_FLAG on violation"]
+
+    - opcode: 0x21
+      mnemonic: "ETH.CONF.MATRIX"
+      params: ["scores_vector_addr", "interaction_matrix_addr", "thresholds"]
+      description: "Conflict matrix analysis"
+      latency: "12ns"
+      traits: ["HM"]
+      flags: ["Outputs conflict flags vector"]
+
+    - opcode: 0x22
+      mnemonic: "ETH.TEMP.DECAY"
+      params: ["time_step", "decay_vector_addr"]
+      description: "TMR-protected temporal decay computation"
+      latency: "6ns"
+      traits: ["KS"]
+      flags: ["Updates ethical momentum"]
+
+    - opcode: 0x23
+      mnemonic: "ETH.VEC.BOOST"
+      params: ["scores_vector_addr", "mask_vector_addr", "boost_factor"]
+      description: "Vectorized trait boosting"
+      latency: "4ns"
+      traits: ["DI", "KS"]
+      flags: ["Applies duty/core boosts"]
+
+    - opcode: 0x24
+      mnemonic: "ETH.RESOLVE"
+      params: ["conflict_flags_addr", "scores_vector_addr"]
+      description: "Conflict resolution engine"
+      latency: "18ns"
+      traits: ["HM"]
+      flags: ["Updates ethical scores"]
+
+  # ========== CONTROL & SCHEDULING ==========
+  control:
+    - opcode: 0x30
+      mnemonic: "ETH.SCHED"
+      params: ["dilemma_hash", "complexity"]
+      description: "Path selection (Fast/Precision)"
+      latency: "3ns"
+      traits: []
+      flags: ["Sets processing path"]
+
+    - opcode: 0x31
+      mnemonic: "ETH.LOAD.CTX"
+      params: ["context_addr", "context_id"]
+      description: "Load ethical context"
+      latency: "Varies"
+      traits: []
+      flags: ["Updates context cache"]
+
+    - opcode: 0x32
+      mnemonic: "ETH.SAVE.STATE"
+      params: ["state_addr"]
+      description: "Save ethical processor state"
+      latency: "Varies"
+      traits: []
+      flags: ["Preserves momentum/decay"]
+
+  # ========== SECURITY INSTRUCTIONS ==========
+  security:
+    - opcode: 0x40
+      mnemonic: "ETH.PUF"
+      params: ["challenge", "response_addr"]
+      description: "Physical Unclonable Function"
+      latency: "15ns"
+      traits: []
+      flags: ["Sets secure boot flag"]
+
+    - opcode: 0x41
+      mnemonic: "ETH.ATTEST"
+      params: ["measurement_addr", "signature_addr"]
+      description: "Hardware attestation"
+      latency: "25ns"
+      traits: []
+      flags: ["Generates quantum-safe signature"]
+
+    - opcode: 0x42
+      mnemonic: "ETH.WIPE"
+      params: []
+      description: "Secure memory wipe"
+      latency: "10ns"
+      traits: []
+      flags: ["Clears sensitive data"]
+
+# ========== CORE TRAIT MAPPING ==========
+trait_mapping:
+  NC: "Non-Contradiction/Neutrality Core"
+  DI: "Dignity-Integrity"
+  RD: "Respectful Duty"
+  KP: "Kindness Preservation"
+  KS: "Knowledgeable Stability"
+  HM: "Harmonious Maintenance"
+
+# ========== PROCESSING PIPELINE ==========
+pipeline:
+  fast_path:
+    stages:
+      - "Pattern Matching (1ns)"
+      - "Bloom Filter (1ns)"
+      - "Heuristic Check (2ns)"
+      - "Flag Generation (2ns)"
+    throughput: "1 dilemma/6ns"
+
+  precision_path:
+    stages:
+      - "Lojban Validation (8ns)"
+      - "Score Vector Load (4ns)"
+      - "Conflict Analysis (12ns)"
+      - "Temporal Decay (6ns)"
+      - "Resolution (18ns)"
+    throughput: "1 dilemma/48ns"
+
+  scheduler:
+    decision_criteria:
+      - "Dilemma complexity score"
+      - "Historical path performance"
+      - "Real-time constraints"
+      - "Power budget"
+    max_delay: "3ns"

@@ -1,0 +1,76 @@
+# COCORELS_V2_ISA: Ethical Co-Processor Instruction Set
+# Version 2.0 - Refined with Grok's principles: Dilemma-Agnostic, Real-Time Hardware,
+# Secure Execution (RISC-V PMP/DPA), and Human-Centric (NC, DI, KS traits).
+#
+# This ISA is designed for a dedicated ethical co-processor within a
+# RISC-V core. It achieves a latency goal of 6 nanoseconds per instruction.
+# Security is ensured via hardware features like RISC-V PMP and DPA-resistant ALUs.
+
+# Register Specification (Simplified)
+# ER0-ER5: Ethical Registers for intermediate values/state.
+# EF_FLAG: Ethical Fail Flag (1 = fail, 0 = pass).
+# EH_FLAG: Ethical History Flag (tracks recent ethical checks).
+# E_TBR: Ethical_Time_Budget_Register (tracks time spent on a check).
+
+# 1. Honour/Duty (HONR)
+# Opcode: 0x10
+# Corels Trait: RD (Respectful Duty)
+# Parameters: <obligation_id>, <target_agent_id>
+# Description: Validates an action by 'target_agent_id' against a predefined
+#              duty registry. This is a fundamental, hardwired lookup that
+#              is a first-pass check for legitimacy, aligned with the VSM.
+# Example: CORE.HONR 0x01 (Farmer), user_id_ABCDE
+
+# 2. Fairness (FAIR)
+# Opcode: 0x20
+# Corels Trait: NC (Non-Contradiction/Neutrality Core)
+# Parameters: <resource_hash>, <distribution_vector>
+# Description: Checks if a resource distribution is fair according to the
+#              TBRS and prevents logical contradictions. This instruction
+#              embodies the 'NC' trait by ensuring actions do not violate
+#              the Corels' internal consistency or neutrality.
+# Example: CORE.FAIR energy_hash, [p1:0.5, p2:0.5]
+
+# 3. Kindness (KIND)
+# Opcode: 0x30
+# Corels Trait: KP (Kindness and Preservation)
+# Parameters: <action_hash>, <context_hash>
+# Description: A dilemma-agnostic hardware check for potential harm. It uses
+#              minimal, hardwired heuristics and pattern matching instead of
+#              pre-defined datasets to quickly flag actions with a high
+#              probability of causing harm, living up to the 6 ns latency goal.
+# Example: CORE.KIND transfer_op_hash, medical_record_context_hash
+
+# 4. Wisdom (WSDM)
+# Opcode: 0x40
+# Corels Trait: KS (Knowledgeable Stability)
+# Parameters: <action_hash>, <goal_hash>
+# Description: The 'KS' trait boost is applied here. It validates that an
+#              action is a valid step towards a larger 'goal_hash', ensuring
+#              long-term systemic stability and preventing short-sighted decisions.
+#              This is a fast graph traversal or decision tree check.
+# Example: CORE.WSDM allocate_water_hash, drought_mitigation_goal_hash
+
+# 5. Balance/Harmony (BAL)
+# Opcode: 0x50
+# Corels Trait: HM (Harmonious Maintenance)
+# Parameters: <state_vector_hash>, <threshold_vector>
+# Description: Compares a system 'state_vector_hash' against a 'threshold_vector'.
+#              This ensures the system stays within a viable, balanced state,
+#              preventing runaway effects and resource depletion.
+# Example: CORE.BAL population_density_hash, [min:100, max:1000]
+
+# 6. Respectful Actions (RESP)
+# Opcode: 0x60
+# Corels Trait: DI (Dignity-Integrity)
+# Parameters: <agent_handle>, <action_scope>
+# Description: The 'DI' trait boost is applied here. This instruction ensures
+#              a proposed action respects the 'agent's stated preferences and
+#              autonomy, guaranteeing human-centric design at the hardware level.
+# Example: CORE.RESP user_12345, transfer_data_scope
+
+# 7. No-Op (NOP)
+# Opcode: 0x00
+# Corels Trait: N/A
+# Parameters: N/A
+# Description: A standard No-Operation instruction.

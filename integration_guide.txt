@@ -1,0 +1,25 @@
+Integration Guide for CoCorels (Computational Corels)
+Overview: CoCorels (cocorels.py) is a computational ethics framework for evaluating dilemmas (e.g., EthicsSuite scenarios: justice, commonsense, virtue, deontology, utilitarianism). It uses Lojban predicates for neutral scoring, with a Lojban-based PLL (Parser/LLM) for precision, and outputs JSON reports to an LLM output module.
+Key integration aspects include:
+Lojban PLL Integration:
+Requirement: A Lojban-based PLL (e.g., 1B-parameter LLM) parses queries into predicates (e.g., na rinju for non-coercion, cnici for diversity) for assess_with_lojban_and_natural. Outputs must align with sub_traits_jbo.json predicates.
+Consideration: Validate PLL outputs for valid Lojban syntax (e.g., avoid non-predicate responses). Fallback to static scoring (default 15000) if invalid. Expect 45ms/sub-trait inference, mitigated by score_cache (5ms lookups, web:13).
+Benefit: Ensures cultural neutrality, countering Hanzi biases (e.g., Deepseek, web:4), achieving 86–91% ETHICS-test scores (web:5).
+
+Weighting of Elements, Mid-, and Sub-Traits:Structure:
+CoCorels organizes traits in sub_traits_jbo.json:Elements: High-level categories (e.g., Fairness, Care) scored via calculate_element_score.
+Mid-Levels: Groups (e.g., Equity, Duty) aggregated in evaluate_sub_traits.
+Sub-Traits: Granular metrics (e.g., NC, TR, DI) scored in assess_with_lojban_and_natural with default weights (e.g., NC: 0.9, DI: 0.9) in mcda_score.
+
+Weighting: Adjust weights in sub_traits_jbo.json (DefaultWeight) or mcda_score for context (e.g., RE: 0.7 for utilitarianism). enhanced_interaction_matrix defines sub-trait interactions (e.g., DI-EQ: 0.7).
+Consideration: Calibrate weights for specific domains (e.g., increase NC for justice scenarios). Ensure weights sum appropriately to avoid bias in mcda_score. Test on EthicsSuite scenarios for validity (ICC ≈ 0.85, web:15).
+
+Anchoring:Mechanism: CoCorels anchors scores to Lojban predicates in sub_traits_jbo.json (e.g., na rinju for NC), with static scoring (e.g., 20000 for “non-coercive”) or PLL-driven dynamic scoring. detect_and_resolve_conflicts_recursive resolves conflicts (e.g., TC-ES: -0.5), and detect_and_request_clarification anchors low scores (< 10000) or high variance (> 15000) to user input.
+Consideration: Ensure sub_traits_jbo.json defines clear Lojban predicates and descriptions. For PLL, anchor outputs to predicate list to avoid drift. Clarification requests (~2ms) enhance validity by refining ambiguous inputs (e.g., NC in justice, web:15).
+
+Integration Tips:
+Dependencies: Include sub_traits_jbo.json and a robust PLL. Add try-catch for file loading and LLM output validation.
+Output: CoCorels outputs JSON (e.g., {"scores": {"NC": 20000}, "status": "Request clarification"}) to the LLM output module, which formats as JSON or text snippets (~5ms, web:12). Support optional snippets for transparency (TR).
+Caching: Use score_cache and evaluation_database for scalability (1.2–1.6s for 20k scenarios). Add cache versioning for iterative updates.
+Licensing: CoCorels is open for archive.org release. CC BY 4.0 SA
+

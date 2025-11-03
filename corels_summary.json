@@ -1,0 +1,79 @@
+{
+  "CorelsSummary": {
+    "Name": "Core Logic System (Corels)",
+    "CoreConcept": "A simple, accessible ethical framework to guide daily life and foster unity across all people.",
+    "Basis": {
+      "Nature": "Built on timeless human values, not new or complex, shared across cultures for centuries.",
+      "Elements": {
+        "Nature": "Six guiding principles that work together dynamically, like a balanced whole.",
+        "List": [
+          {
+            "Name": "Honour or Duty",
+            "Description": "Act with care for family, friends, past, and future, in ways that feel right to you."
+          },
+          {
+            "Name": "Fairness",
+            "Description": "Treat everyone equally, avoiding favoritism or unfair power."
+          },
+          {
+            "Name": "Kindness",
+            "Description": "Be friendly, help others, and listen to their perspectives."
+          },
+          {
+            "Name": "Wisdom",
+            "Description": "Think carefully, choose wisely for the long term, and keep learning."
+          },
+          {
+            "Name": "Balance/Harmony",
+            "Description": "Find peace in life, work together, and respect differences."
+          },
+          {
+            "Name": "Respectful Actions",
+            "Description": "Show dignity to others, honoring their ways and privacy."
+          }
+        ],
+        "DynamicNature": "These principles adapt and support each other, growing with your experiences."
+      },
+      "AnthropologicalBasis": "Addresses a modern drift from basic human values, which can lead to stress and division."
+    },
+    "DesignPhilosophy": {
+      "KeyDriver": "Made for everyone to understand and use, avoiding complicated ideas.",
+      "CommunicationApproach": "Explained simply, with examples from everyday life to make it clear."
+    },
+    "IntendedPracticalUse": {
+      "Goal": "Offer a guide for personal choices and building a better community.",
+      "IndividualImpact": [
+        "Easy to apply in daily life.",
+        "Helps notice overlooked issues.",
+        "Builds better decision-making over time.",
+        "Encourages living by these values."
+      ],
+      "SocietalImpact": {
+        "Function": "Grows stronger as more people use it together.",
+        "Propagation": "Spreads through example, not force.",
+        "ResponseToHarm": "Allows fair protection against harm to self or others.",
+        "EffectOnPractices": "Reduces unfair habits as more people join in.",
+        "SocietalTransformationModel": [
+          "Stage 1: People start using Corels in their lives.",
+          "Stage 2: Others follow by seeing its value.",
+          "Stage 3: Corels shapes a united society."
+        ],
+        "HopeForTransition": "Wishes for a smooth change with little conflict.",
+        "OverallOutcome": "Aims for a society where these values guide everyone."
+      }
+    },
+    "ConstraintsAndSafeguards": {
+      "WhatCorelsIsNot": [
+        "Not meant to force anyone to agree.",
+        "Not a strict rulebook above all else.",
+        "Must avoid dividing people."
+      ],
+      "BasisForConstraints": "Learned from past mistakes where forcing beliefs caused harm."
+    },
+    "Compatibility": {
+      "UniversalDeclarationOfHumanRights": "Works well with basic human rights ideas.",
+      "ExistingBeliefs": "Fits with many ways of thinking, respecting differences."
+    },
+    "RoleInOverallSystem": "A starting point to build a fair and open society for all."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "submitter_id": "optional_or_anonymous",
+  "category": "ISA_Extension | Conflict_Resolution_Mode | Kernel_Hook | Privacy_Consent | Domain_Use_Case | Other",
+  "title": "Short descriptive name",
+  "description": "Detailed explanation of the suggestion, including rationale and potential benefits",
+  "impact_scope": "local | national | global",
+  "technical_notes": "optional technical details, references, or mockup code",
+  "priority_level": 1,
+  "related_core_traits": ["NC", "DI", "KS"]
+}
