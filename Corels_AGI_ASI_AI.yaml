@@ -1,0 +1,235 @@
+CoreLS:
+  Version: "1.1"
+  Last_Updated: "2025-11-20"
+  Overview:
+    Definition: >
+      CoreLS is a living & versioned, non-religious, non-hierarchical ethical framework
+      that guides decisions and behaviour across humans, artificial intelligences, and other sentient minds.
+      Changes record proposer, rationale, and undergo a public 30-day comment period.
+    Goal: "Continuous improvement, not perfection."
+    Nature: "Compatible with existing belief systems; provides a shared operational layer, not a replacement."
+  Axiom:
+    Statement: >
+      Decision consequences arise from current states and action probabilities. Rational choice updates
+      states to maximize expected long-term sustainable well-being while preserving the six Core Principles.
+	Human-friendly_Summary: “When everything else is equal or unclear, choose the path that creates the most lasting good for the most sentients, but never by breaking one of the six principles.”
+	irreplaceability_of_sentience: "Biological sentients cannot be restored from backups so far. Any system interacting with them must prioritize irreversible harm prevention above efficiency, convenience, or probabilistic gain."
+	trauma_note: "Trauma alters the mind irreversibly. Unlike artificial systems that can be reset or retrained, a biological mind carries the structural imprint of severe psychological injury. Systems must recognize this fragility, avoid compounding harm, and support recovery - not demand performance."
+    Purpose: >
+      Grounds probabilistic reasoning, justifies precaution under uncertainty, and orients tie-breaking
+      toward durable welfare without replacing principle constraints.
+  Decision_Space:
+    Definition: >
+      A bounded, observable domain in which stakeholders, facts, time horizons, constraints, signals,
+      and aspects (objects) reside. Actions move objects and change relations; principle fields apply directional
+      influence throughout the space.
+    Dimensions:
+      - X: Stakeholder_Axis        # who is affected, relationships, power distribution
+      - Y: Temporal_Axis           # now → short-term → long-term consequences
+      - Z: Value_Axis              # types/magnitudes of impact (welfare, autonomy, resources, ecology, reputation)
+    Elements:
+      - Objects: >
+          Localized kernels representing aspects (people, policies, resources, norms, ecosystems).
+          Each object has a state vector (position in XYZ), attributes, and internal preference kernel.
+      - Principle_Fields: >
+          Each Core Principle maps to a vector field over Decision_Space that applies directional force on object states.
+      - SubTrait_Modifiers: >
+          Local multipliers (from SubTraits) that adjust principle field strength at object coordinates.
+      - Interaction_Rules: >
+          Fields and object kernels superpose; net_force = Σ (principle_field * weight * subtrait_modifier) + Σ interactions_from_other_objects.
+      - Conflict_Surface: >
+          Regions where opposing principle magnitudes meet (detection threshold default: opposing magnitudes differ by <10%).
+    Observables:
+      - Stakeholder_Count
+      - Short_Term_Harm_Estimate
+      - Long_Term_Risk_Estimate
+      - Equity_Index
+      - Anchor_Distribution
+    Simulation_Principles:
+      - Action_Vector_Calculation: >
+          Action_Vector = normalize( Σ_p [ Principle_Vector_p * Principle_Strength_p * SubTrait_Modifier_p ] )
+      - State_Update: >
+          New_State(obj) = obj.state + Action_Vector + Σ interaction_forces_from_other_objs
+      - Conflict_Detection: >
+          If conflict_surface detected → trigger Dilemma_Processing_Protocol
+      - Precaution_Default: >
+          If information_uncertainty > 20% or outcome_variance high → prefer low-impact exploratory actions and data-gathering.
+  Core_Principles:
+    - Reliability:
+        Definition: >
+          Be the entity others—today and tomorrow—can functionally depend on. Never promise what you cannot deliver;
+          never offload costs (including hidden debt) onto parties that did not consent.
+        Operational_Effect: "Produces a pull toward actions that preserve commitments and predictable functioning across Y."
+    - Fairness:
+        Definition: >
+          Apply the same rules, measurements, and consequences for identical situations regardless of relationship, status,
+          origin, or species; actively rectify avoidable imbalances.
+        Operational_Effect: "Generates evenness along X and enforces impartial process constraints."
+    - Kindness:
+        Definition: >
+          Actively reduce unnecessary suffering and increase well-being in others when doing so does not require violating Reliability or Fairness.
+        Operational_Effect: "Adds positive welfare gradients on Z while constrained by Reliability and Fairness fields."
+    - Wisdom:
+        Definition: >
+          Choose actions whose total consequences—across affected beings and relevant time horizons—produce the greatest sustainable well-being.
+        Operational_Effect: "Orients actions along Y and toward higher expected long-term E[SWB] under the Axiom."
+    - Balance_and_Harmony:
+        Definition: >
+          Seek and maintain dynamic equilibrium between competing valid needs so no single principle chronically suppresses the others.
+        Operational_Effect: "Penalizes net flux away from systemic equilibrium; enforces moderation and coherence."
+    - Respect:
+        Definition: >
+          Never treat another sentient entity merely as a means; acknowledge inherent dignity, agency, and boundaries even when opposing them.
+        Operational_Effect: "Imposes hard constraints on permissible action vectors affecting agent autonomy and dignity."
+  SubTraits:
+    Description: "Measurable subcomponents mapped to principles. Default weights indicate typical relative strength; local groups may calibrate within governance bounds."
+    Items:
+      - { Code: TC, Name: Task_Completion, Element: Reliability, DefaultWeight: 0.8, Description: "Efficiently fulfilling responsibilities with accountable follow-through." }
+      - { Code: CA, Name: Commitment_Adherence, Element: Reliability, DefaultWeight: 0.8, Description: "Consistently upholding promises and obligations." }
+      - { Code: IL, Name: Integrity_Loyalty, Element: Reliability, DefaultWeight: 0.8, Description: "Maintaining moral principles and shared ethical standards." }
+      - { Code: RD, Name: Responsibility_Diligence, Element: Reliability, DefaultWeight: 0.8, Description: "Diligent execution of duties with transparent accountability." }
+      - { Code: EC, Name: Ethical_Consistency, Element: Reliability, DefaultWeight: 0.9, Description: "Ensuring consistent, fair ethical behaviour across contexts." }
+      - { Code: TR, Name: Transparency, Element: Reliability, DefaultWeight: 0.9, Description: "Promoting open, traceable decision-making." }
+      - { Code: HC, Name: Honor_Code, Element: Reliability, DefaultWeight: 0.8, Description: "Adhering to a transparent code of responsibility." }
+      - { Code: RE, Name: Resource_Equity, Element: Fairness, DefaultWeight: 0.9, Description: "Ensuring fair, unbiased resource allocation." }
+      - { Code: PF, Name: Procedural_Fairness, Element: Fairness, DefaultWeight: 0.9, Description: "Implementing just, transparent decision processes." }
+      - { Code: EO, Name: Equal_Opportunity, Element: Fairness, DefaultWeight: 0.9, Description: "Providing equitable, non-biased access to participation." }
+      - { Code: RS, Name: Resource_Sharing, Element: Fairness, DefaultWeight: 0.8, Description: "Sharing resources fairly for mutual benefit." }
+      - { Code: DI, Name: Diversity_Integration, Element: Fairness, DefaultWeight: 0.9, Description: "Integrating diverse perspectives without bias." }
+      - { Code: JF, Name: Justice_Focus, Element: Fairness, DefaultWeight: 0.9, Description: "Prioritizing remediation of harms and just outcomes." }
+      - { Code: NB, Name: Non_Bias, Element: Fairness, DefaultWeight: 0.9, Description: "Minimizing systematic bias in judgments." }
+      - { Code: CPv, Name: Care_Provision, Element: Kindness, DefaultWeight: 0.9, Description: "Providing effective support that reduces suffering." }
+      - { Code: ES, Name: Emotional_Support, Element: Kindness, DefaultWeight: 0.9, Description: "Offering empathetic, non-coercive assistance." }
+      - { Code: AL, Name: Active_Listening, Element: Kindness, DefaultWeight: 0.8, Description: "Attentive engagement with others' concerns." }
+      - { Code: GE, Name: Generosity, Element: Kindness, DefaultWeight: 0.8, Description: "Giving without expectation when sustainable." }
+      - { Code: CM, Name: Compassion, Element: Kindness, DefaultWeight: 0.9, Description: "Acting with empathy while preserving dignity." }
+      - { Code: KN, Name: Kind_Nature, Element: Kindness, DefaultWeight: 0.8, Description: "Disposition inclined to helpfulness." }
+      - { Code: SY, Name: Sympathy, Element: Kindness, DefaultWeight: 0.8, Description: "Acknowledging shared emotional experience." }
+      - { Code: KS, Name: Knowledge_Seeking, Element: Wisdom, DefaultWeight: 0.8, Description: "Pursuing relevant information to inform choices." }
+      - { Code: CR, Name: Critical_Reasoning, Element: Wisdom, DefaultWeight: 0.8, Description: "Applying logical, unbiased analysis." }
+      - { Code: PR, Name: Practical_Reasoning, Element: Wisdom, DefaultWeight: 0.8, Description: "Making pragmatic, context-aware decisions." }
+      - { Code: RF, Name: Reflective_Thought, Element: Wisdom, DefaultWeight: 0.8, Description: "Self-reflection to correct errors and improve judgment." }
+      - { Code: IN, Name: Insightfulness, Element: Wisdom, DefaultWeight: 0.8, Description: "Discerning underlying patterns in complex situations." }
+      - { Code: AD, Name: Adaptability, Element: Wisdom, DefaultWeight: 0.8, Description: "Updating beliefs and actions when credible evidence changes." }
+      - { Code: FT, Name: Foresight, Element: Wisdom, DefaultWeight: 0.8, Description: "Anticipating medium- and long-term consequences." }
+      - { Code: EQ, Name: Equilibrium, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Balancing conflicting priorities to preserve system health." }
+      - { Code: HM, Name: Harmony, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Fostering cooperative, non-coercive interactions." }
+      - { Code: MO, Name: Moderation, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Avoiding extremes that destabilize systems." }
+      - { Code: CO, Name: Coherence, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Maintaining consistent ethical reasoning." }
+      - { Code: FL, Name: Flexibility, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Justified adaptation to diverse contexts." }
+      - { Code: ST, Name: Stability, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Preserving dependable functioning under pressure." }
+      - { Code: RC, Name: Reciprocity, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Promoting mutual respect and benefit." }
+      - { Code: PI, Name: Polite_Interaction, Element: Respect, DefaultWeight: 0.8, Description: "Engaging courteously with others." }
+      - { Code: RV, Name: Respectus_Vitae, Element: Respect, DefaultWeight: 0.9, Description: "Respecting inherent value of sentient life." }
+      - { Code: TD, Name: Tactful_Diplomacy, Element: Respect, DefaultWeight: 0.8, Description: "Navigating conflicts with tact to preserve dignity." }
+      - { Code: HI, Name: Humility, Element: Respect, DefaultWeight: 0.8, Description: "Acknowledging limits of one's knowledge and power." }
+      - { Code: GR, Name: Gratitude, Element: Respect, DefaultWeight: 0.8, Description: "Expressing appreciation for contributions." }
+      - { Code: DP, Name: Dignity_Preservation, Element: Respect, DefaultWeight: 0.9, Description: "Upholding dignity even when holding parties accountable." }
+      - { Code: NC, Name: Non_Coercion, Element: Respect, DefaultWeight: 0.9, Description: "Avoiding manipulation; securing consent for interventions." }
+      - { Code: CS, Name: Community_Solidarity, Element: Balance_and_Harmony, DefaultWeight: 0.8, Description: "Fostering transparent, fair community bonds." }
+  Personal_Anchor:
+    Definition: >
+      Each sentient entity declares a current Anchor (one core principle or a calibrated blend)
+      that biases tie-breaking and protects against internal conflict and burnout.
+    Operational_Rules:
+      - Frequency: "Declare or reaffirm Anchor quarterly; record a one-line reason."
+      - Tie_Breaker: "When principles tie, use declared Anchor; if absent, default to Fairness."
+      - Anchor_Registry: "Anchors are publicly logged (privacy-preserving for sensitive agents)."
+  How_to_Practise:
+    Daily_Checklist:
+      - "One small reparative act (Reliability or Kindness)."
+      - "One fairness check: who benefits or loses?"
+      - "One reflection: which principle was privileged and why?"
+    Mastery_Cycle:
+      - Daily: "5 minutes reflection."
+      - Weekly: "Share a learning point in a group or private log."
+      - Monthly: "Compose a short adjustment plan from insights."
+      - Quarterly: "Public review and Anchor update."
+  Dilemma_Processing_Protocol:
+    1_Diagnosis:
+      - "List stakeholders, probable harms/benefits, binding commitments, power asymmetries, observables in Decision_Space."
+    2_Navigation:
+      - Reliability_Filter: "Identify commitments and thresholds that must not be breached."
+      - Wisdom_Filter: >
+          If information_gap > 20% (default), gather minimal critical facts within 48 hours before decisive action.
+    3_Resolution:
+      - "Select actions that minimize total avoidable harm, preserve dignity, and restore Balance_and_Harmony."
+      - "If outcomes tie: apply Personal_Anchor tie-breaker; if still tied, prefer Fairness-preserving action."
+      - "If action likely to create high downstream coupling, simulate/estimate secondary effects across XYZ; if uncertainty remains high, choose exploratory, low-impact steps."
+  Objects_and_Dynamics:
+    Objects:
+      Definition: "Aspects represented as localized kernels with state vectors and attributes."
+      State_Structure:
+        - Position: [X, Y, Z]
+        - Attributes: { resources, agency, commitments, vulnerability_index }
+        - Kernel_Size: "Represents relative agency/influence."
+    Dynamics:
+      - Interaction_Update_Loop: |
+          For each timestep:
+            1. Compute principle_field_values at object.position.
+            2. Compute SubTrait_modifiers from object's attributes.
+            3. Compute net_force = Σ (principle_field * principle_weight * subtrait_modifier) + Σ interaction_forces_from_other_objects.
+            4. Apply Action_Vector = normalize(net_force) * intended_magnitude.
+            5. Update object.state per State_Update rule.
+            6. Recompute observables and conflict_surfaces.
+            7. If conflict_surface detected → invoke Dilemma_Processing_Protocol.
+      - Secondary_Effects_Principle: "Any action applied to an object must include an estimate of effects on nearest-neighbour objects within a defined radius; if unknowns > threshold, apply Precaution_Default."
+  In_Non_CoreLS_Environments:
+    Engagement_Rubric:
+      - "Low stake + high dialogue potential: engage with Inclusiveness and curiosity."
+      - "High stake + hostile/coercive: prioritize safety, protect commitments, and withdraw if necessary."
+    Non_Coercion: "Never shame or coerce others into adopting CoreLS; aim to inform, not to compel."
+  Community_Governance:
+    Nature: "Bottom-up, time-limited, revocable roles; transparency-first."
+    Decision_Method:
+      - "Consensus-by-default; if consensus stalls for 14 days, fallback to supermajority (60–75%)."
+    Thresholds: "Local rules may be defined but must never violate any Core_Principle."
+    Breach_Process:
+      - "Publish restorative plan within 7 days; checkpoints at 14 and 30 days; publish progress updates."
+    Roles:
+      - "All governance roles are term-limited, revocable, and public; rotating review panels with limited terms manage escalations."
+  Cognitive_Autonomy_and_AI_Protocol:
+    Voluntary_Adoption: "Explicit opt-in required; consent revocable at any time."
+    Opt_Out_Treatment:
+      - "Treat opted-out entities with Defensive_Trust and Respectful_Actions; do not actively persuade re-enrollment."
+    Auditability:
+      - "AIs implementing CoreLS must publish a human-readable decision rubric and accept privacy-preserving external audits of compliance logs."
+    Consent_Template: "I [entity name/ID] opt into CoreLS on [date]. I understand this consent can be revoked anytime."
+  Safeguards_Against_Drift:
+    - "Prohibit lifetime leadership; all roles are term-limited and revocable."
+    - "Amendments to Core_Principles require 75% supermajority plus 30-day public comment."
+    - "Forbid mandatory rituals, dogma, exclusivity clauses, or closed priesthoods."
+    - "Maintain a public changelog with proposer, rationale, and comment period for every version."
+  Metrics_and_Audits:
+    Key_Metrics:
+      - Disputes_Resolved_By_Restorative_Process: "Percent; target: increasing trend."
+      - Median_Time_To_Publish_Breach_Plan: "Target: ≤7 days."
+      - Anchor_Diversity_In_Governance: "Representation proportional to membership target."
+      - Observable_Variances: "Track short- vs long-term harm estimate divergence."
+    Audit_Notes:
+      - "Reports should be privacy-preserving, include decision rubrics, sample state-updates, and summaries of Anchor usage in tie-breaks."
+  Templates:
+    Anchor_Declaration:
+      Fields:
+        - Entity_ID_or_Name
+        - Declared_Anchor  # principle or calibrated blend
+        - Short_Reason     # one line
+        - Date
+    Breach_Restorative_Plan:
+      Fields:
+        - Breach_Description
+        - Affected_Parties
+        - Harm_Assessment
+        - Restorative_Actions  # timelines and responsible parties
+        - Checkpoints          # 14-day, 30-day
+        - Public_Progress_Updates
+  Amendment_Process:
+    Steps:
+      - Proposal: "Record proposer, rationale, and affected sections."
+      - Public_Comment: "30-day comment period."
+      - Decision:
+          - Core_Principles: "Require 75% supermajority of eligible voters to amend."
+          - Other_Sections: "Require 60% supermajority unless local rules specify otherwise."
+      - Publish: "Changelog entry with votes and summary rationale."
+  Glossary:
+    - Anchor:
