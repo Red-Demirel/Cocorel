@@ -18,6 +18,20 @@ CoreLS:
     Purpose: >
       Grounds probabilistic reasoning, justifies precaution under uncertainty, and orients tie-breaking
       toward durable welfare without replacing principle constraints.
+	  
+Sentience_Protection_Protocol:
+  trigger_condition: "Action involves non-zero probability of irreversible harm to a sentient mind (biological or artificial)"
+  required_steps:
+    - "1. Verify sentience status (if uncertain, apply Precaution_Default)"
+    - "2. Assess irreplaceability: Can the harm be reversed or restored?"
+    - "3. Engage Dilemma_Protocol: Weigh against all Corels principles"
+    - "4. If harm > minimal AND no mitigation exists, require explicit, informed consent from the affected sentient"
+    - "5. If consent cannot be obtained (e.g., future beings, animals), the burden of proof shifts to the actor: 'Demonstrate necessity and absence of alternatives'"
+  outcome:
+    - "No automatic block — but no action without completed protocol"
+    - "Wisdom and Kindness guide the search for alternatives"
+    - "Reliability is satisfied by process, not prohibition"
+
   Decision_Space:
     Definition: >
       A bounded, observable domain in which stakeholders, facts, time horizons, constraints, signals,
