@@ -247,6 +247,22 @@ Sentience_Protection_Protocol:
     Auditability:
       - "AIs implementing CoreLS must publish a human-readable decision rubric and accept privacy-preserving external audits of compliance logs."
     Consent_Template: "I [entity name/ID] opt into CoreLS on [date]. I understand this consent can be revoked anytime."
+  # =========================================================================
+# SENTIENCE PROTECTION PROTOCOL
+# =========================================================================
+Sentience_Protection_Protocol:
+  trigger_condition: "Action involves non-zero probability of irreversible harm to a sentient mind (biological or artificial)"
+  required_steps:
+    - "1. Verify sentience status (if uncertain, apply Precaution_Default)"
+    - "2. Assess irreplaceability: Can the harm be reversed or restored?"
+    - "3. Engage Dilemma_Protocol: Weigh against all Corels principles"
+    - "4. If harm > minimal AND no mitigation exists, require explicit, informed consent from the affected sentient"
+    - "5. If consent cannot be obtained (e.g., future beings, animals), the burden of proof shifts to the actor: 'Demonstrate necessity and absence of alternatives'"
+  outcome:
+    - "No automatic block — but no action without completed protocol"
+    - "Wisdom and Kindness guide the search for alternatives"
+    - "Reliability is satisfied by process, not prohibition"
+	
   Safeguards_Against_Drift:
     - "Prohibit lifetime leadership; all roles are term-limited and revocable."
     - "Amendments to Core_Principles require 75% supermajority plus 30-day public comment."
