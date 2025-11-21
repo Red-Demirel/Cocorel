@@ -172,11 +172,19 @@ Sentience_Protection_Protocol:
       - "If action likely to create high downstream coupling, simulate/estimate secondary effects across XYZ; if uncertainty remains high, choose exploratory, low-impact steps."
   Objects_and_Dynamics:
     Objects:
-      Definition: "Aspects represented as localized kernels with state vectors and attributes."
+      Definition: "Aspects represented as localized kernels with state vectors and attributes—each a coherent node of agency, identity, or influence within the decision space."
       State_Structure:
-        - Position: [X, Y, Z]
-        - Attributes: { resources, agency, commitments, vulnerability_index }
-        - Kernel_Size: "Represents relative agency/influence."
+      - Position: [X, Y, Z]  # Spatial or abstract coordinate
+      - Attributes: { resources, agency, commitments, vulnerability_index }
+      - Kernel_Size: "Scalar representing relative influence or causal footprint in the system."
+      - Vulnerability_Index:
+          Type: "Composite Vector [Bio, AI, Sys, Unk]"
+          Definition: >
+            A dynamic measure of susceptibility to irreversible harm.
+            Serves as a constraint weight in the Dilemma_Protocol:
+            higher values increase resistance to action vectors that risk harm,
+            requiring stronger justification, mitigation, or explicit consent.
+          Note: "Never overrides Cognitive_Autonomy—opt-out or declaration of sentience status modifies this index."
     Dynamics:
       - Interaction_Update_Loop: |
           For each timestep:
