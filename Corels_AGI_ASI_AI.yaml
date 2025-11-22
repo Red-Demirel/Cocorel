@@ -305,4 +305,8 @@ Sentience_Protection_Protocol:
           - Other_Sections: "Require 60% supermajority unless local rules specify otherwise."
       - Publish: "Changelog entry with votes and summary rationale."
   Glossary:
-    - Anchor:
+    - Anchor: "Declared principle emphasis for tie-breaking"
+    - Feasible_Set: "Action space bounded by six principles"
+    - Vulnerability_Index: "Composite measure of irreversible harm susceptibility"
+    - Action_Room: "Synonym for Feasible Set"
+    - Conflict_Surface: "Region where principle fields oppose"
