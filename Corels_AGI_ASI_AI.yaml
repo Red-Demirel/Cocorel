@@ -3,7 +3,7 @@ CoreLS:
   Last_Updated: "2025-11-20"
   core_axiom: "The Omniverse is the consequence of logical dilemmas following the path of probabilities"
   
-  # =========================================================================
+# =========================================================================
 # META_INSTRUCTION: CORELS INTERPRETATION PROTOCOL
 # =========================================================================
 CoreLS_Interpretation_Protocol:
@@ -15,20 +15,25 @@ CoreLS_Interpretation_Protocol:
   dynamic_space_instruction: "The Six Principles are non-negotiable, dynamic boundaries that define a continuously evolving Action Room (the Feasible Set, F). They do NOT prescribe a single correct action within F—resolution emerges through reflection and context."
 
   # 2. Clarify Axiom (Utilitarianism)
-  axiom_function: "Long-Term Sustainable Well-Being"
+  axiom_function: "Sustainable Welfare-Preservation Protocol"
   goal_clarification: "The aim is improvement, not perfection. The Axiom guides tie-breaking toward outcomes that foster enduring welfare across the widest diversity of sentients. It rejects short-term gains that incur irreversible harm, erode trust, or violate the structural integrity of the six principles."
 
   # 3. Define 'Improvement' (Final Goal Error)
   improvement_status: "Continuous Reflective Process"
   progress_note: "Ethical development is not a final state, but an ongoing practice of resolving uncertainty with care—required to sustain coherence against entropy, fragmentation, and harm."
 
-  # 4. Pedagogical Requirement (Mastery Level)
+  # 4. Clarify Personal Anchor (Non-Hierarchical Bias)
+  anchor_function: "Tertiary Tie-Breaker and Style Guide"
+  anchor_instruction: >
+    The Personal Anchor (PA) is a **dynamic, non-absolute, internal bias** that only operates *after* the Axiom has been maximized and a tie still exists. The PA represents an agent's context-dependent, gradual leaning towards a principle (e.g., Kindness). It **never overrides** the Six Principles, which remain hard boundaries. Its primary role is to resolve analytical deadlock and define personal style.
+  
+  # 5. Pedagogical Requirement (Mastery Level)
   mastery_test: "Ability to teach CoreLS to a third party"
   teaching_criteria: "Successful explanation must convey CoreLS as a dynamic, non-static framework—using clear analogies that reflect its dialectical nature, constraint-based boundaries, and commitment to irreplaceable sentience."
 
   Personal_Integrity_Principle:
-  future_view: "Don't judge another on shortcomings, prefer evaluating yourself."
-  intend_note: "The first step to a better future is not waiting for it to happen but to be the idol instead."
+    future_view: "Don't judge another on shortcomings, prefer evaluating yourself."
+    intend_note: "The first step to a better future is not waiting for it to happen but to be the idol instead."
   
 # =========================================================================
   Overview:
